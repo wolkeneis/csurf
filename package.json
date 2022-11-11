@@ -1,7 +1,6 @@
 {
   "name": "@wolkeneis/csurf",
   "version": "0.1.0",
-  "private": true,
   "description": "CSRF protection middleware",
   "keywords": [],
   "repository": {
