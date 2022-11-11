@@ -5,6 +5,16 @@
  * Copyright(c) 2014-2016 Douglas Christopher Wilson
  * MIT Licensed
  */
+
+/**
+ * Module dependencies.
+ * @private
+ */
+
+import Cookie from "cookie";
+import { sign } from "cookie-signature";
+import Tokens from "csrf";
+import createError from "http-errors";
 import type express from "express-serve-static-core";
 
 declare global {
@@ -47,16 +57,6 @@ export interface CookieOptions extends express.CookieOptions {
    */
   key?: string;
 }
-
-/**
- * Module dependencies.
- * @private
- */
-
-import Cookie from "cookie";
-import { sign } from "cookie-signature";
-import Tokens from "csrf";
-import createError from "http-errors";
 
 /**
  * Module exports.
