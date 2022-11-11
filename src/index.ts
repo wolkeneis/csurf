@@ -14,8 +14,8 @@
 import Cookie from "cookie";
 import { sign } from "cookie-signature";
 import Tokens from "csrf";
-import createError from "http-errors";
 import type express from "express-serve-static-core";
+import createError from "http-errors";
 
 declare global {
   namespace Express {
@@ -241,11 +241,10 @@ function setSecret(req: express.Request, res: express.Response, val: string, coo
     // set secret on cookie
     let value = val;
 
-    if (!req.secret) {
-      return;
-    }
-
     if (cookie.signed) {
+      if (!req.secret) {
+        return;
+      }
       value = "s:" + sign(val, req.secret);
     }
 
